@@ -20,7 +20,12 @@ if __name__ == "__main__":
     root_dir = get_repository_root()
     INFILE = root_dir / "data" / "ex_5_2-data.csv"
     OUTFILE = root_dir / "outputs" / "ex_5_2-processed.csv"
+    data = np.loadtxt(INFILE)
+    normed = (data - data.mean(axis=0)) / data.std(axis=0)
+    processed = normed
+    np.savetxt(OUTFILE,processed)
 
     # Complete the data processing steps using numpy here.
+
 
     # Save the output to OUTFILE using numpy routines.
